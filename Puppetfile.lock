@@ -1,21 +1,14 @@
 FORGE
   remote: http://forge.puppetlabs.com
   specs:
-    puppetlabs/apache (1.0.1)
-      puppetlabs/concat (>= 1.0.0)
-      puppetlabs/stdlib (>= 2.4.0)
-    puppetlabs/concat (1.1.0-rc1)
-      puppetlabs/stdlib (>= 3.0.0)
-    puppetlabs/stdlib (4.1.0)
-
-GIT
-  remote: https://github.com/huit/puppet-harvard.git
-  ref: master
-  sha: 77548d5658b18b990f9874cc44229ef4e7a3068b
-  specs:
-    harvard (0.1.0)
+    huit/splunk (1.6.0)
+      puppetlabs/inifile (>= 1.0.0)
+      puppetlabs/stdlib (>= 3.2.0)
+    nanliu/staging (1.0.2)
+    puppetlabs/inifile (1.2.0)
+    puppetlabs/stdlib (4.4.0)
 
 DEPENDENCIES
-  harvard (>= 0)
-  puppetlabs/apache (>= 0)
+  huit/splunk (>= 0)
+  nanliu/staging (>= 0)
 

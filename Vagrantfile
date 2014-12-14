@@ -1,5 +1,6 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
+ENV['VAGRANT_DEFAULT_PROVIDER'] = 'virtualbox'
 
 # Load AWS functionality if the plugin is installed. Networking options below
 # will be ignored by the AWS plugin. This is un-necessary in Vagrant >= 1.5.0
@@ -11,6 +12,7 @@ Vagrant.configure('2') do |config|
   # Forward standard ports (local only, does not run under AWS)
   config.vm.network :forwarded_port, guest: 80,  host: 8080, auto_correct: true
   config.vm.network :forwarded_port, guest: 443, host: 8443, auto_correct: true
+  config.vm.network :forwarded_port, guest: 8000,  host: 8000, auto_correct: true
 
   # By default Vagrant uses a host-only network on a private IP space that, at
   # Harvard, is reserved by the Law School. Instead, use a private IP space
@@ -22,7 +24,6 @@ Vagrant.configure('2') do |config|
   # If you install the hostsupdater plugin, you can access the VM via its
   # DNS name. To install it run: `vagrant plugin install vagrant-hostsupdater`
   config.vm.hostname = 'vagrant.dev'
-  config.vm.box = 'puppetlabs/centos-6.5-64-puppet'
   config.vm.box = 'puppetlabs/centos-6.5-64-puppet'
 
   # Puppet Labs CentOS 6.5 for VirtualBox

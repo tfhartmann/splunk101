@@ -1,2 +1,4 @@
 # Default Hiera values for Puppet
---- {}
+---
+splunk::package_provider: 'rpm'
+splunk::package_source:   '/tmp/splunk-6.2.0-237341-linux-2.6-x86_64.rpm'

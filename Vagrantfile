@@ -1,6 +1,13 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 ENV['VAGRANT_DEFAULT_PROVIDER'] = 'virtualbox'
+# Script to download Splunk RPM
+$script = <<SCRIPT 
+if [ ! -f /tmp/splunk-6.2.0-237341-linux-2.6-x86_64.rpm ]; then
+  echo "Getting Splunk RPM"
+  #curl -s http://download.splunk.com/releases/6.2.0/splunk/linux/splunk-6.2.0-237341-linux-2.6-x86_64.rpm -o /tmp/splunk-6.2.0-237341-linux-2.6-x86_64.rpm
+fi
+SCRIPT
 
 # Load AWS functionality if the plugin is installed. Networking options below
 # will be ignored by the AWS plugin. This is un-necessary in Vagrant >= 1.5.0
@@ -53,6 +60,7 @@ Vagrant.configure('2') do |config|
 
   # Install librarian-puppet and use it to download Puppet modules
   config.vm.provision :shell, :path => 'bootstrap.sh' unless ENV['LIBRARIAN'] == 'false'
+  config.vm.provision "shell", inline: $script
 
   # Puppet provisioner for primary configuration
   config.vm.provision :puppet do |puppet|

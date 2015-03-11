@@ -5,7 +5,7 @@ ENV['VAGRANT_DEFAULT_PROVIDER'] = 'virtualbox'
 $script = <<SCRIPT 
 if [ ! -f /tmp/splunk-6.2.0-237341-linux-2.6-x86_64.rpm ]; then
   echo "Getting Splunk RPM"
-  #curl -s http://download.splunk.com/releases/6.2.0/splunk/linux/splunk-6.2.0-237341-linux-2.6-x86_64.rpm -o /tmp/splunk-6.2.0-237341-linux-2.6-x86_64.rpm
+  curl -s http://download.splunk.com/releases/6.2.0/splunk/linux/splunk-6.2.0-237341-linux-2.6-x86_64.rpm -o /tmp/splunk-6.2.0-237341-linux-2.6-x86_64.rpm
 fi
 SCRIPT
 
